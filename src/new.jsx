@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { HashRouter } from "react-router-dom";
 import { CalendarInput } from "../components/calendarInput";
 import { Checkbox } from "../components/checkbox";
 import { Message } from "../components/message";
 import { ButtonSave } from "../components/buttonSave";
 import { ButtonCancel } from "../components/buttonCancel";
 
-export function Main() {
+export function New(props) {
     const [fecha, setFecha] = useState('')
     const [good, setGood] = useState(true)
     const [mensaje, setMensaje] = useState('')
@@ -38,7 +39,10 @@ export function Main() {
                 good: good,
             }))
             localStorage.setItem('cont', parseInt(cont) + 1)
+            props.history.push("/")
         }} />
-        <ButtonCancel />
+        <ButtonCancel onClick={() => {
+            props.history.push("/")
+        }} />
     </div>
 }

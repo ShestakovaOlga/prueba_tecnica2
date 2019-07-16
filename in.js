@@ -1,15 +1,21 @@
 
 import React, { useState } from "react";
 import { render } from "react-dom";
-import { Main } from "./src/main";
-import Calendar from 'react-input-calendar';
-import Moment from 'react-moment';
-import 'moment-timezone';
+import { New } from "./src/new";
+import { HashRouter } from "react-router-dom";
+import { ListCalendar } from "./src/listCalendar";
+import { Route, Switch } from "react-router-dom";
+
 
 
 function App() {
     return <div>
-        <Main />
+        <HashRouter>
+            <Switch>
+                <Route exact path='/new' component={New} />
+                <Route path='*' component={ListCalendar} />
+            </Switch>
+        </HashRouter>
     </div>
 }
 

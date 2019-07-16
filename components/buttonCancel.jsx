@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function ButtonCancel() {
+export function ButtonCancel(props) {
     return <div style={{
     }}>
         <button style={{
@@ -11,6 +11,6 @@ export function ButtonCancel() {
             minHeight: 35,
             padding: 10,
             fontSize: '1.2rem',
-        }} type="reset" value="Reset">Cancelar</button>
+        }} onClick={props.onClick} type="reset" value="Reset">Cancelar</button>
     </div>
 }
