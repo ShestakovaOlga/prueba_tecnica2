@@ -1,10 +1,9 @@
 import React from 'react';
-import Moment from 'react-moment';
-import 'moment-timezone';
 
 
 
-export function CalendarInput() {
+
+export function CalendarInput(props) {
     return <div style={{
         display: 'flex',
         flexDirection: 'column',
@@ -13,15 +12,14 @@ export function CalendarInput() {
     }}>
         <h3>Fecha</h3>
         <input style={{
+            width: 450,
+            minHeight: 30,
             boxShadow: 'none',
             outline: 'none',
             borderRadius: 5,
-            width: 300,
             padding: 5,
-        }} type="text" name="calendar" id="calendar" />
-        {/*<Moment format="DD/MM/YYYY">
-            2019/07/15
-    </Moment>*/}
-
+        }} onChange={(e) => {
+            props.onChange(e.target.value)
+        }} type="date" name="calendar" id="calendar" value={props.value} />
     </div >
 }
